@@ -17,7 +17,6 @@ com/portfolio/diego/Security/Entity/Usuario.class
 com/portfolio/diego/Security/Dto/NuevoUsuario.class
 com/portfolio/diego/Dto/dtoPersona.class
 com/portfolio/diego/DiegoApplication.class
-com/portfolio/diego/Interface/IPersonaService.class
 com/portfolio/diego/Security/Service/UserDetailsImpl.class
 com/portfolio/diego/Security/Service/RolService.class
 com/portfolio/diego/Service/ImpPersonaService.class

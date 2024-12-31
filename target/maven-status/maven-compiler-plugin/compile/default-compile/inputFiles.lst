@@ -29,7 +29,6 @@
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Security/Dto/LoginUsuario.java
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Security/Repository/iRolRepository.java
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Security/Entity/UsuarioPrincipal.java
-/Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Interface/IPersonaService.java
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Entity/Persona.java
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Service/ImpPersonaService.java
 /Users/macbook/Documents/diego/Programacion/Visual Studio/nuevo proyecto/backend/src/main/java/com/portfolio/diego/Security/Jwt/JwtTokenFilter.java
