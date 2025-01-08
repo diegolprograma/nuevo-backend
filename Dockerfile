@@ -1,4 +1,4 @@
-FROM amazoncorretto:13-alpine
+FROM FROM amazoncorretto:13
 
 COPY target/diego-0.0.1-SNAPSHOT.jar app.jar
 
