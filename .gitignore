@@ -3,6 +3,10 @@ HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+<<<<<<< HEAD
+=======
+
+>>>>>>> e48d5c9 (Subiendo proyecto de backend)
 ### STS ###
 .apt_generated
 .classpath
@@ -30,6 +34,7 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 
 
 # Ignorar carpetas de frontend y otros proyectos
@@ -41,3 +46,5 @@ Visual Studio/portfolio/portfolio/
 
 
 Visual Studio/nuevo proyecto/
+=======
+>>>>>>> e48d5c9 (Subiendo proyecto de backend)
