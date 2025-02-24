@@ -49,11 +49,12 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+                <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
-    <scope>runtime</scope>
+    <version>8.0.23</version> 
 </dependency>
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
