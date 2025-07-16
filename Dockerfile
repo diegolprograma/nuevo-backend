@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine-jdk
+FROM amazoncorretto:17-alpine
 WORKDIR /app
 COPY --from=build /app/target/diego-0.0.1-SNAPSHOT.jar diego-app.jar
 EXPOSE 8080
