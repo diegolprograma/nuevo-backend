@@ -60,16 +60,26 @@ public class MainSecurity {
         return http.build();
     }
 
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedOrigin("https://nuevo-frontend.web.app");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+   @Bean
+public CorsFilter corsFilter() {
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    CorsConfiguration config = new CorsConfiguration();
+
+    config.setAllowCredentials(true);
+    config.addAllowedOrigin("http://localhost:4200");
+    config.addAllowedOrigin("https://nuevo-frontend.web.app");
+
+    config.addAllowedHeader("*");
+    config.addExposedHeader("Access-Control-Allow-Origin");
+
+    config.addAllowedMethod("GET");
+    config.addAllowedMethod("POST");
+    config.addAllowedMethod("PUT");
+    config.addAllowedMethod("DELETE");
+    config.addAllowedMethod("OPTIONS");
+
+    source.registerCorsConfiguration("/**", config);
+    return new CorsFilter(source);
+}
+
 }
