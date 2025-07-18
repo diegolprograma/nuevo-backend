@@ -61,23 +61,18 @@ public class MainSecurity {
     }
 
    @Bean
-public CorsFilter corsFilter() {
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
-
     config.setAllowCredentials(true);
-    config.addAllowedOriginPattern("*"); // <--- permite cualquier origen
+    // Poné aquí los orígenes que permitís, ej:
+    config.addAllowedOrigin("http://localhost:4200");
+    config.addAllowedOrigin("https://nuevo-frontend.web.app");
     config.addAllowedHeader("*");
-    config.addExposedHeader("Access-Control-Allow-Origin");
+    config.addAllowedMethod("*");
 
-    config.addAllowedMethod("GET");
-    config.addAllowedMethod("POST");
-    config.addAllowedMethod("PUT");
-    config.addAllowedMethod("DELETE");
-    config.addAllowedMethod("OPTIONS");
-
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", config);
-    return new CorsFilter(source);
+    return source;
 }
 
 
