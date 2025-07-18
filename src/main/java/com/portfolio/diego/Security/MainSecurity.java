@@ -66,9 +66,7 @@ public CorsFilter corsFilter() {
     CorsConfiguration config = new CorsConfiguration();
 
     config.setAllowCredentials(true);
-    config.addAllowedOrigin("http://localhost:4200");
-    config.addAllowedOrigin("https://nuevo-frontend.web.app");
-
+    config.addAllowedOriginPattern("*"); // <--- permite cualquier origen
     config.addAllowedHeader("*");
     config.addExposedHeader("Access-Control-Allow-Origin");
 
@@ -81,5 +79,6 @@ public CorsFilter corsFilter() {
     source.registerCorsConfiguration("/**", config);
     return new CorsFilter(source);
 }
+
 
 }
