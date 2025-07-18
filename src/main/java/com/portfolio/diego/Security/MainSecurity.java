@@ -65,7 +65,8 @@ public class MainSecurity {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200"); // Cambia según tu frontend
+        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedOrigin("https://nuevo-frontend.web.app");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
