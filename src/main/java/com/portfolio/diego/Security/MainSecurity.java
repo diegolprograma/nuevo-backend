@@ -24,6 +24,7 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MainSecurity {
+
     @Autowired
     UserDetailsImpl userDetailsServiceImpl;
 
@@ -52,25 +53,26 @@ public class MainSecurity {
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("**").permitAll() // Permitir acceso público a estos endpoints
-                .anyRequest().authenticated(); // Proteger el resto de las rutas
+                .antMatchers("**").permitAll()
+                .anyRequest().authenticated();
 
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
-
+    }
 
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
+
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200"); // Cambia según tu frontend
+        config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedOrigin("https://nuevo-frontend.web.app");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
- (Fix CORS issues and improve JWT token filter for Firebase frontend)
 }
