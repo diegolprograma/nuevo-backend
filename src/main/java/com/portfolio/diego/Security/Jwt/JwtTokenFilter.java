@@ -20,11 +20,19 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     JwtProvider jwtProvider;
+
     @Autowired
     UserDetailsImpl userDetailsServiceImpl;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        // Permitir que las peticiones OPTIONS pasen rápido para evitar bloqueos CORS
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         try {
             String token = getToken(request);
             if (token != null && jwtProvider.validateToken(token)) {
@@ -34,17 +42,17 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                         null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
-
         } catch (Exception e) {
-            logger.error("Fallo el metodo doFilterInternal");
+            logger.error("Fallo el metodo doFilterInternal", e);
         }
+
         filterChain.doFilter(request, response);
     }
-    
+
     private String getToken(HttpServletRequest request) {
-         String header = request.getHeader("Authorization");
-         if(header != null && header.startsWith("Bearer") )
-             return header.replace("Bearer", "");
-         return null;
+        String header = request.getHeader("Authorization");
+        if (header != null && header.startsWith("Bearer"))
+            return header.replace("Bearer", "").trim();
+        return null;
     }
 }

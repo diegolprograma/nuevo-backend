@@ -4,7 +4,7 @@ COPY target/diego-0.0.1-SNAPSHOT.jar diego-app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "diego-app.jar"]
 
-
+ (Fix CORS issues and improve JWT token filter for Firebase frontend)
 
 
 

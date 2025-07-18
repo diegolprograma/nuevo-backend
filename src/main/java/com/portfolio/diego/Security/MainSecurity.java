@@ -58,22 +58,19 @@ public class MainSecurity {
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("http://localhost:4200"); // Cambia según tu frontend
+        config.addAllowedOrigin("https://nuevo-frontend.web.app");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
-
-   @Bean
-public CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration config = new CorsConfiguration();
-    config.setAllowCredentials(true);
-    // Poné aquí los orígenes que permitís, ej:
-    config.addAllowedOrigin("http://localhost:4200");
-    config.addAllowedOrigin("https://nuevo-frontend.web.app");
-    config.addAllowedHeader("*");
-    config.addAllowedMethod("*");
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", config);
-    return source;
-}
-
-
+ (Fix CORS issues and improve JWT token filter for Firebase frontend)
 }
